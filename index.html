@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KANG｜用工程腦飛行與出拳</title>
-<meta name="description" content="KANG：橋梁監造工程師 × FPV 飛手 × 拳擊。自己寫工具來分析每一次飛行、每一記出拳。">
+<title data-i18n="home.title">KANG｜用工程腦飛行與出拳</title>
+<meta name="description" data-i18n-content="home.desc" content="KANG：橋梁監造工程師 × FPV 飛手 × 拳擊。自己寫工具來分析每一次飛行、每一記出拳。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="KANG｜用工程腦飛行與出拳">
-<meta property="og:description" content="橋梁監造工程師 × FPV 飛手 × 拳擊。">
+<meta property="og:title" data-i18n-content="home.title" content="KANG｜用工程腦飛行與出拳">
+<meta property="og:description" data-i18n-content="home.ogdesc" content="橋梁監造工程師 × FPV 飛手 × 拳擊。">
 <meta property="og:image" content="https://kangup.com/assets/kang_banner_hd_final.png">
 <link rel="icon" href="assets/kang_favicon_v2.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Noto+Sans+TC:wght@400;700;900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/i18n.js"></script>
 <script type="module" src="js/select.js"></script>
 <script type="module" src="js/works.js"></script>
 </head>
@@ -22,9 +23,10 @@
   <nav class="nav">
     <a class="logo" href="#top">KANG</a>
     <div class="nav-links">
-      <a href="#works">作品</a>
-      <a href="#tools">工具</a>
-      <a href="#contact">合作</a>
+      <a href="#works" data-i18n="nav.works">作品</a>
+      <a href="#tools" data-i18n="nav.tools">工具</a>
+      <a href="#contact" data-i18n="nav.contact">合作</a>
+      <button type="button" class="lang" id="lang-toggle" aria-label="切換語言 / Switch language"><span class="l-zh">中</span> / <span class="l-en">EN</span></button>
       <a class="ig" href="https://instagram.com/knight0114">IG ▶</a>
     </div>
   </nav>
@@ -34,17 +36,17 @@
   <div class="wrap">
     <div class="cabinet">
       <div class="screen crt">
-        <img src="assets/kang_banner_anim_v2.gif" alt="KANG 像素橫幅：戴工程帽的 KANG 指向看板，無人機飛過山谷橋">
+        <img src="assets/kang_banner_anim_v2.gif" data-i18n-alt="hero.alt" alt="KANG 像素橫幅：戴工程帽的 KANG 指向看板，無人機飛過山谷橋">
       </div>
       <p class="press blink">PRESS START</p>
     </div>
     <div class="hero-text">
       <p class="tag">1 PLAYER · PETER KANG</p>
-      <h1>用工程腦<br>飛行與出拳</h1>
-      <p class="lead">橋梁監造工程師 × FPV 飛手 × 拳擊。自己寫工具來分析每一次飛行、每一記出拳。</p>
+      <h1 data-i18n-html="hero.h1">用工程腦<br>飛行與出拳</h1>
+      <p class="lead" data-i18n="hero.lead">橋梁監造工程師 × FPV 飛手 × 拳擊。自己寫工具來分析每一次飛行、每一記出拳。</p>
       <div class="btns">
-        <a class="btn btn-yellow" href="#select">選擇角色</a>
-        <a class="btn btn-line" href="#contact">合作洽詢</a>
+        <a class="btn btn-yellow" href="#select" data-i18n="hero.btn.select">選擇角色</a>
+        <a class="btn btn-line" href="#contact" data-i18n="hero.btn.contact">合作洽詢</a>
       </div>
     </div>
   </div>
@@ -54,20 +56,20 @@
   <div class="wrap">
     <div class="select-head">
       <h2>SELECT YOUR TRACK</h2>
-      <p>點選角色看介紹（選中的角色會動起來）</p>
+      <p data-i18n="select.hint">點選角色看介紹（選中的角色會動起來）</p>
     </div>
     <div class="tracks">
-      <button type="button" class="sel p1" data-id="p1" aria-pressed="false" aria-label="選擇工程" style="--pos:left center">
-        <img class="still" src="assets/kang_banner_hd_final.png" alt="">
-        <img class="anim" src="assets/kang_banner_anim_v2.gif" alt="">
+      <button type="button" class="sel p1" data-id="p1" aria-pressed="false" data-i18n-aria="p1.aria" aria-label="選擇工程">
+        <img class="still" src="assets/kang_engineer_static.png" alt="">
+        <img class="anim" src="assets/kang_engineer_anim.gif" alt="">
         <span class="tagbar">P1 · ENGINEER</span>
       </button>
-      <button type="button" class="sel p2" data-id="p2" aria-pressed="true" aria-label="選擇 FPV">
+      <button type="button" class="sel p2" data-id="p2" aria-pressed="true" data-i18n-aria="p2.aria" aria-label="選擇 FPV">
         <img class="still" src="assets/kang_avatar_static.png" alt="">
         <img class="anim" src="assets/kang_avatar_anim_v2.gif" alt="">
         <span class="tagbar">P2 · PILOT</span>
       </button>
-      <button type="button" class="sel p3" data-id="p3" aria-pressed="false" aria-label="選擇拳擊">
+      <button type="button" class="sel p3" data-id="p3" aria-pressed="false" data-i18n-aria="p3.aria" aria-label="選擇拳擊">
         <img class="still" src="assets/kang_boxing_guard_side.png" alt="">
         <img class="anim" src="assets/kang_boxing_punch_side.gif" alt="">
         <span class="tagbar">P3 · BOXER</span>
@@ -77,26 +79,26 @@
       <article class="panel p1" data-id="p1">
         <div class="panel-body">
           <p class="code">P1 · ENGINEER</p>
-          <h3>工程</h3>
-          <p class="desc">橋梁監造工程師，參與桃園復興區橋梁災害復建。</p>
+          <h3 data-i18n="p1.title">工程</h3>
+          <p class="desc" data-i18n="p1.desc">橋梁監造工程師，參與桃園復興區橋梁災害復建。</p>
         </div>
-        <a class="btn" href="https://instagram.com/knight0114">看工地空拍 →</a>
+        <a class="btn" href="https://instagram.com/knight0114" data-i18n="p1.cta">看工地空拍 →</a>
       </article>
       <article class="panel p2" data-id="p2">
         <div class="panel-body">
           <p class="code">P2 · PILOT</p>
-          <h3>FPV 穿越機</h3>
-          <p class="desc">花飛與電影感拍攝。GEPRC Cinebot25 / Cinebot35 / TriPro6 機隊。</p>
+          <h3 data-i18n="p2.title">FPV 穿越機</h3>
+          <p class="desc" data-i18n="p2.desc">花飛與電影感拍攝。GEPRC Cinebot25 / Cinebot35 / TriPro6 機隊。</p>
         </div>
-        <a class="btn" href="fpv/">看 FPV 作品 →</a>
+        <a class="btn" href="fpv/" data-i18n="p2.cta">看 FPV 作品 →</a>
       </article>
       <article class="panel p3" data-id="p3">
         <div class="panel-body">
           <p class="code">P3 · BOXER</p>
-          <h3>拳擊</h3>
-          <p class="desc">每週訓練日記，用姿態分析看自己的出拳。</p>
+          <h3 data-i18n="p3.title">拳擊</h3>
+          <p class="desc" data-i18n="p3.desc">每週訓練日記，用姿態分析看自己的出拳。</p>
         </div>
-        <a class="btn" href="https://instagram.com/knight0114">看訓練紀錄 →</a>
+        <a class="btn" href="https://instagram.com/knight0114" data-i18n="p3.cta">看訓練紀錄 →</a>
       </article>
     </div>
   </div>
@@ -115,13 +117,13 @@
     <h2 class="h-px">BONUS STAGE</h2>
     <div class="cards">
       <a class="card" href="https://kang666-hub.github.io/fpv-trainer/">
-        <h3>花飛訓練平台</h3>
-        <p>3D 物理示範打桿與推力分解，含訓練菜單與自由練習。</p>
+        <h3 data-i18n="bonus.trainer.title">花飛訓練平台</h3>
+        <p data-i18n="bonus.trainer.desc">3D 物理示範打桿與推力分解，含訓練菜單與自由練習。</p>
         <span class="go">PLAY ▶</span>
       </a>
       <a class="card yellow" href="https://kang666-hub.github.io/fpvBattery/">
         <h3>fpvBattery</h3>
-        <p>鋰電池電壓參考與功率計算。</p>
+        <p data-i18n="bonus.battery.desc">鋰電池電壓參考與功率計算。</p>
         <span class="go">PLAY ▶</span>
       </a>
     </div>
@@ -132,7 +134,7 @@
   <div class="wrap">
     <h2>CONTINUE?</h2>
     <p class="count blink">9</p>
-    <p class="sub">FPV 拍攝 · 工程空拍 · 品牌合作</p>
+    <p class="sub" data-i18n="contact.sub">FPV 拍攝 · 工程空拍 · 品牌合作</p>
     <div class="btns">
       <a class="btn btn-pink" href="https://instagram.com/knight0114">IG @knight0114</a>
       <a class="btn btn-line" href="mailto:knight0114@gmail.com">knight0114@gmail.com</a>

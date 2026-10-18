@@ -149,3 +149,22 @@ footer.site-footer{padding:28px 24px;text-align:center;font-family:var(--px);fon
   .page h1{font-size:18px}
   .footer-text{font-size:8px}
 }
+
+/* 中英切換按鈕（需要 JS，無 JS 時隱藏） */
+.nav-links .lang{display:none;padding:12px 12px;background:transparent;border:2px solid var(--line);color:var(--muted);font:700 14px/1 'Noto Sans TC',sans-serif;cursor:pointer}
+.js .nav-links .lang{display:inline-block}
+.lang:hover{border-color:var(--cyan)}
+html[lang="zh-Hant"] .lang .l-zh,html[lang="en"] .lang .l-en{font-weight:900;color:var(--yellow);text-decoration:underline;text-underline-offset:4px}
+
+/* 手機導覽列：KANG、連結、中/EN、IG 維持同一行 */
+@media (max-width:600px){
+  .nav{flex-wrap:nowrap;gap:6px;padding:10px 12px}
+  .logo{font-size:17px;text-shadow:0 0 8px rgba(255,225,77,.6),2px 2px 0 var(--pink)}
+  .nav-links{flex-wrap:nowrap;gap:2px;min-width:0}
+  .nav-links a{padding:10px 5px;font-size:13px;white-space:nowrap}
+  .nav-links a.ig{padding:10px 8px;font-size:9px}
+  .nav-links .lang{padding:8px 7px;font-size:12px;margin:0 2px;white-space:nowrap}
+}
+@media (max-width:359px){
+  .nav-links a:not(.ig){display:none}
+}

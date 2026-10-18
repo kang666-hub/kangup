@@ -3,26 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>工具區｜KANG</title>
-<meta name="description" content="KANG 自己寫的 FPV 工具：花飛訓練平台、fpvBattery 電池計算。">
+<title data-i18n="tools.title">工具區｜KANG</title>
+<meta name="description" data-i18n-content="tools.desc" content="KANG 自己寫的 FPV 工具：花飛訓練平台、fpvBattery 電池計算。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="工具區｜KANG">
-<meta property="og:description" content="花飛訓練平台、fpvBattery 電池計算。">
+<meta property="og:title" data-i18n-content="tools.title" content="工具區｜KANG">
+<meta property="og:description" data-i18n-content="tools.ogdesc" content="花飛訓練平台、fpvBattery 電池計算。">
 <meta property="og:image" content="https://kangup.com/assets/kang_banner_hd_final.png">
 <link rel="icon" href="../assets/kang_favicon_v2.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Noto+Sans+TC:wght@400;700;900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<script type="module" src="../js/i18n.js"></script>
 </head>
 <body>
 <header class="site-header">
   <nav class="nav">
     <a class="logo" href="../">KANG</a>
     <div class="nav-links">
-      <a href="../#works">作品</a>
-      <a href="../tools/">工具</a>
-      <a href="../#contact">合作</a>
+      <a href="../#works" data-i18n="nav.works">作品</a>
+      <a href="../tools/" data-i18n="nav.tools">工具</a>
+      <a href="../#contact" data-i18n="nav.contact">合作</a>
+      <button type="button" class="lang" id="lang-toggle" aria-label="切換語言 / Switch language"><span class="l-zh">中</span> / <span class="l-en">EN</span></button>
       <a class="ig" href="https://instagram.com/knight0114">IG ▶</a>
     </div>
   </nav>
@@ -33,13 +35,13 @@
     <h1>BONUS STAGE</h1>
     <div class="cards">
       <a class="card" href="https://kang666-hub.github.io/fpv-trainer/">
-        <h3>花飛訓練平台</h3>
-        <p>3D 物理示範打桿與推力分解，含訓練菜單與自由練習。</p>
+        <h3 data-i18n="bonus.trainer.title">花飛訓練平台</h3>
+        <p data-i18n="bonus.trainer.desc">3D 物理示範打桿與推力分解，含訓練菜單與自由練習。</p>
         <span class="go">PLAY ▶</span>
       </a>
       <a class="card yellow" href="https://kang666-hub.github.io/fpvBattery/">
         <h3>fpvBattery</h3>
-        <p>鋰電池電壓參考與功率計算。</p>
+        <p data-i18n="bonus.battery.desc">鋰電池電壓參考與功率計算。</p>
         <span class="go">PLAY ▶</span>
       </a>
     </div>
