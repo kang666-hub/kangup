@@ -27,6 +27,36 @@ test('id 不重複、track 合法', () => {
   for (const w of works) assert.ok(TRACKS.includes(w.track), `${w.id} track=${w.track}`);
 });
 
+test('thumb 非空時放在 assets/works/ 底下、是 jpg；href 不含 ?（追蹤參數）', () => {
+  for (const w of works) {
+    if (w.thumb) assert.match(w.thumb, /^assets\/works\/[\w.-]+\.jpg$/, `${w.id} thumb=${w.thumb}`);
+    assert.ok(!w.href.includes('?'), `${w.id} href 含 ?：${w.href}`);
+    assert.match(w.href, /^https:\/\/(www\.)?(instagram\.com|kang666-hub\.github\.io)\//, `${w.id} href 不是預期的網址`);
+  }
+});
+
+test('每個 thumb 都有對應的 _sm 小縮圖（192×108 jpg）', () => {
+  const dims = (file) => {                                                   // 讀 JPEG 的 SOF 區段取得寬高
+    const b = readFileSync(file);
+    let i = 2;
+    while (i < b.length) {
+      assert.equal(b[i], 0xff, '不是有效的 JPEG');
+      const m = b[i + 1];
+      const len = b.readUInt16BE(i + 2);
+      if (m >= 0xc0 && m <= 0xc3) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)];
+      i += 2 + len;
+    }
+    throw new Error('找不到 SOF');
+  };
+  for (const w of works.filter((x) => x.thumb)) {
+    const sm = w.thumb.replace(/\.jpg$/i, '_sm.jpg');
+    assert.notEqual(sm, w.thumb, `${w.id} thumb 不是 .jpg`);
+    const f = path.join(ROOT, sm);
+    assert.ok(existsSync(f), `${w.id} 缺小縮圖 ${sm}（執行 make_thumb_sm.py）`);
+    assert.deepEqual(dims(f), [192, 108], `${w.id} 小縮圖尺寸不是 192×108`);
+  }
+});
+
 test('featured 的 order 不重複', () => {
   const orders = works.filter((w) => w.featured).map((w) => w.order);
   assert.equal(new Set(orders).size, orders.length);

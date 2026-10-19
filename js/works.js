@@ -11,18 +11,32 @@ function el(tag, cls, text) {
   return e;
 }
 
+// 小縮圖檔名約定：原檔名加 _sm（assets/works/xxx.jpg → assets/works/xxx_sm.jpg），works.json 不用多欄位
+const smOf = (thumb) => thumb.replace(/\.jpg$/i, '_sm.jpg');
 const pick = (w, k) => (getLang() === 'en' && w[`${k}_en`]) || w[k];
 
 function renderScores(list, mount) {
   const items = list.filter((w) => w.featured).sort((a, b) => a.order - b.order);
   const head = el('div', 'row head');
-  ['RANK', 'TITLE', 'TRACK'].forEach((t) => head.append(el('span', '', t)));
+  ['RANK', '', 'TITLE', 'TRACK'].forEach((t, k) => head.append(el('span', ['', 'th', '', ''][k], t)));
   mount.append(head);
   items.forEach((w, i) => {
     const a = el('a', 'row');
     a.href = w.href;
     a.append(el('span', 'rank', RANK[i] || `${i + 1}TH`));
-    a.append(el('span', 'ttl', `${pick(w, 'title')}｜${pick(w, 'desc')}`));
+    const th = el('span', 'th');                                    // 小縮圖（96px 寬、16:9）；沒有縮圖就留空框，版面不跳
+    if (w.thumb) {
+      const img = el('img');
+      img.src = new URL(`../${smOf(w.thumb)}`, import.meta.url).href;   // 首頁用小縮圖（192×108）；/fpv/ 卡片用原圖
+      img.alt = pick(w, 'title');                                   // 與旁邊的標題文字重複，是為了符合「縮圖要有 alt」的規則
+      img.loading = 'lazy';
+      img.width = 192; img.height = 108;
+      th.append(img);
+    }
+    a.append(th);
+    const ttl = el('span', 'ttl');                                  // 文字仍是「標題｜說明」；「標題｜」不斷行，所以「｜」不會落在行首
+    ttl.append(el('span', 'nw', `${pick(w, 'title')}｜`), document.createTextNode(pick(w, 'desc')));
+    a.append(ttl);
     a.append(el('span', `trk t-${w.track}`, TRACK_LABEL[w.track] || w.track));
     mount.append(a);
   });
@@ -36,7 +50,10 @@ function renderCards(list, mount) {
     if (w.thumb) {
       const img = el('img');
       img.src = new URL(`../${w.thumb}`, import.meta.url).href;
-      img.alt = pick(w, 'title');
+      img.alt = pick(w, 'title');                     // 目前語言的標題；切換語言時整張卡片重新渲染，alt 跟著換
+      img.loading = 'lazy';
+      img.width = 960; img.height = 540;              // 縮圖原尺寸，避免版面跳動
+      thumb.classList.add('has-img');
       thumb.append(img);
     } else {
       thumb.textContent = t('thumb.placeholder');

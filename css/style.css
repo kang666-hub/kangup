@@ -89,11 +89,14 @@ html:not(.js) .sel{opacity:1;cursor:default}
 .scores .wrap{max-width:1000px;display:flex;flex-direction:column;gap:28px}
 .scores h2{font-size:22px;color:var(--cyan)}
 .board{border:4px solid var(--cyan);background:#0b0b16;font-size:16px}
-.row{display:grid;grid-template-columns:80px minmax(0,1fr) 120px;gap:12px;padding:18px 20px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line);align-items:center}
+.row{display:grid;grid-template-columns:80px 96px minmax(0,1fr) 120px;gap:12px;padding:18px 20px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line);align-items:center}
 .row:last-child{border-bottom:0}
 .row.head{padding:14px 20px;font-family:var(--px);font-size:10px;color:var(--yellow);border-bottom:2px solid var(--line)}
 .row .rank{font-family:var(--px);font-size:12px;color:var(--yellow)}
 .row .ttl{font-weight:700;overflow-wrap:anywhere}
+.row .nw{white-space:nowrap}
+.row:not(.head) .th{display:block;width:96px;aspect-ratio:16/9;background:var(--panel-2);overflow:hidden}
+.row:not(.head) .th img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto}   /* 照片縮圖用平滑縮放（全站 pixelated 是給像素圖用的） */
 .row .trk{font-family:var(--px);font-size:10px}
 .t-fpv{color:var(--cyan)}.t-boxing{color:var(--pink)}.t-engineering{color:var(--orange)}
 
@@ -108,7 +111,8 @@ html:not(.js) .sel{opacity:1;cursor:default}
 .card .go{font-family:var(--px);font-size:11px;color:var(--cyan)}
 .card.yellow .go{color:var(--yellow)}
 .card .thumb{aspect-ratio:16/9;background:var(--panel-2);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;overflow:hidden}
-.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card .thumb img{width:100%;height:100%;object-fit:cover;image-rendering:auto}   /* 照片縮圖用平滑縮放（全站的 pixelated 是給像素圖用的，縮小 960×540 照片會鋸齒） */
+.card .thumb.has-img{border:0}
 .card.soon{opacity:.85}
 .card.soon .go{color:var(--muted)}
 
@@ -148,7 +152,9 @@ footer.site-footer{padding:28px 24px;text-align:center;font-family:var(--px);fon
   .sel .tagbar{font-size:7px;padding:8px 2px}
   .panel{padding:20px}
   .panel h3{font-size:24px}
-  .row{grid-template-columns:44px minmax(0,1fr) 62px;gap:8px;padding:14px 12px}
+  .row{grid-template-columns:44px 96px minmax(0,1fr);grid-template-areas:"rank th trk" "ttl ttl ttl";gap:8px 10px;padding:14px 12px;align-items:center}
+  .row .rank{grid-area:rank}.row:not(.head) .th{grid-area:th}.row .trk{grid-area:trk;justify-self:end}.row .ttl{grid-area:ttl}
+  .row.head{display:none}   /* 手機版每列改成兩行（名次＋縮圖＋分類／標題），欄位標題列隱藏 */
   .row .rank{font-size:9px}
   .row .trk,.row.head{font-size:8px}
   .row.head{padding:12px}
