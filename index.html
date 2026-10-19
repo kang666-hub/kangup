@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=Noto+Sans+TC:wght@400;700;900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script type="module" src="js/i18n.js"></script>
+<script type="module" src="js/sfx.js"></script>
 <script type="module" src="js/select.js"></script>
 <script type="module" src="js/works.js"></script>
 </head>
@@ -26,6 +27,7 @@
       <a href="#works" data-i18n="nav.works">作品</a>
       <a href="#tools" data-i18n="nav.tools">工具</a>
       <a href="#contact" data-i18n="nav.contact">合作</a>
+      <button type="button" class="sfx" id="sfx-toggle" aria-pressed="true" aria-label="音效開關 / Toggle sound" data-i18n-aria="sfx.aria"><span aria-hidden="true">🔊</span></button>
       <button type="button" class="lang" id="lang-toggle" aria-label="切換語言 / Switch language"><span class="l-zh">中</span> / <span class="l-en">EN</span></button>
       <a class="ig" href="https://instagram.com/knight0114">IG ▶</a>
     </div>
@@ -60,18 +62,15 @@
     </div>
     <div class="tracks">
       <button type="button" class="sel p1" data-id="p1" aria-pressed="false" data-i18n-aria="p1.aria" aria-label="選擇工程">
-        <img class="still" src="assets/kang_engineer_static.png" alt="">
-        <img class="anim" src="assets/kang_engineer_anim.gif" alt="">
+        <img class="still" src="assets/kang_engineer_static_v2.png" alt="">
         <span class="tagbar">P1 · ENGINEER</span>
       </button>
       <button type="button" class="sel p2" data-id="p2" aria-pressed="true" data-i18n-aria="p2.aria" aria-label="選擇 FPV">
-        <img class="still" src="assets/kang_avatar_static.png" alt="">
-        <img class="anim" src="assets/kang_avatar_anim_v2.gif" alt="">
+        <img class="still" src="assets/kang_avatar_static_v2.png" alt="">
         <span class="tagbar">P2 · PILOT</span>
       </button>
       <button type="button" class="sel p3" data-id="p3" aria-pressed="false" data-i18n-aria="p3.aria" aria-label="選擇拳擊">
         <img class="still" src="assets/kang_boxing_guard_side.png" alt="">
-        <img class="anim" src="assets/kang_boxing_punch_side.gif" alt="">
         <span class="tagbar">P3 · BOXER</span>
       </button>
     </div>

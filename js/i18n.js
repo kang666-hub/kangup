@@ -2,6 +2,7 @@
 export const DICT = {
   zh: {
     'nav.works': '作品', 'nav.tools': '工具', 'nav.contact': '合作',
+    'sfx.aria': '音效開關 / Toggle sound',
     'home.title': 'KANG｜用工程腦飛行與出拳',
     'home.desc': 'KANG：橋梁監造工程師 × FPV 飛手 × 拳擊。自己寫工具來分析每一次飛行、每一記出拳。',
     'home.ogdesc': '橋梁監造工程師 × FPV 飛手 × 拳擊。',
@@ -32,6 +33,7 @@ export const DICT = {
   },
   en: {
     'nav.works': 'Works', 'nav.tools': 'Tools', 'nav.contact': 'Contact',
+    'sfx.aria': 'Toggle sound',
     'home.title': 'KANG｜Engineered to fly. Built to fight.',
     'home.desc': 'Bridge supervision engineer, FPV pilot and boxer from Taiwan.',
     'home.ogdesc': 'Bridge supervision engineer, FPV pilot and boxer from Taiwan.',
